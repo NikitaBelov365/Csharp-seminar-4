@@ -14,12 +14,37 @@ int InputInt(string msg)
     return 0;
 }
 
-int number = InputInt("Enter some number pls");
-int sum = 0;
 
-for (int i = 0; i <= number; i++)
+bool ValidatePositive(int num)
 {
-    sum = sum + i;
+    if(num <= 0)
+    {
+        System.Console.WriteLine("Enter positive value pls");
+        return false;
+    }
+    return true;
 }
 
-System.Console.WriteLine(sum);
+int SumNumbers(int num)
+{
+    int sum = 0;
+
+    for (int i = 1; i <= num; i++)
+    {
+        sum += i;
+    }
+    return sum;
+}
+
+int SumGaussWay(int value) //Gauss way
+{
+    return (1+value)*value/2;
+}
+
+int number = InputInt("Enter some number pls");
+if(ValidatePositive(number))
+{
+    int sum = SumNumbers(number);
+    System.Console.WriteLine($"Sum of numbers from 1 to {number} is equal: {sum}");
+    System.Console.WriteLine($"Sum of numbers by Gauss method from 1 to {number} is equal: {SumGaussWay(number)}");
+}
